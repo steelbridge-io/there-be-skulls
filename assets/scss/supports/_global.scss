@@ -1,0 +1,12 @@
+/** Global CSS */
+
+
+/* Custom Skull Themed Background */
+body {
+  background-image: url('img/skull-pattern.svg');
+  background-position: center center;
+  background-size: 100px 100px;
+  background-color: #000;
+  background-repeat: repeat;
+  min-height: 100vh;
+}

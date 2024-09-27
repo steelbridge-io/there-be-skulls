@@ -1,0 +1,10 @@
+/** WooCommerce */
+
+.single-product {
+  .container {
+    &.single-product {
+      padding: 1.618em;
+      background-color: rgba(250, 250, 250, 0.8);
+    }
+  }
+}
