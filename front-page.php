@@ -16,25 +16,25 @@ get_header(); ?>
 
 
 <!-- Hero Section -->
-<section class="bg-secondary text-white py-20 position-relative">
+<!-- <section class="bg-secondary text-white py-20 position-relative">
 	<div class="container text-center">
 		<div class="position-relative">
 			<h2 class="display-4 fw-bold mb-4 text-uppercase">Skulls for Everyone</h2>
 			<p class="h5 mb-4">Where fun meets the dark side in style!</p>
 			<a href="/shop" class="btn btn-danger btn-lg">Start Shopping</a>
 		</div>
-	</div>
+	</div> -->
 	<!-- Floating Skull Icon -->
-	<div class="position-absolute bottom-0 start-50 translate-middle-x">
+	<!-- <div class="position-absolute bottom-0 start-50 translate-middle-x">
 		<img src="https://example.com/fun-skull.png" alt="Fun Skull" class="w-40 animate-bounce">
 	</div>
-</section>
+</section> -->
 
 <!-- Featured Products -->
 <section class="py-5">
     <div class="container">
         <h3 class="display-5 fw-bold text-center mb-5 text-uppercase">Featured Skulls</h3>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
 			<?php
 			$term = get_term_by('slug', 'featured', 'product_cat');
 			if ($term) {
