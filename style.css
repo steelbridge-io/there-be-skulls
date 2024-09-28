@@ -16,14 +16,36 @@ body {
   background-size: 100px 100px;
   background-color: #000;
   background-repeat: repeat;
-  min-height: 100vh;
-}
+  min-height: 100vh; }
+
+/** Fonts */
+/**
+Front Page
+ */
+.home .container h3 {
+  color: #ffffff; }
+
+/** Header */
+/**
+Header Carousel
+ */
+.header-carousel .carousel-item .header-carousel-text {
+  color: #ffffff;
+  font-size: 1.5rem; }
+
+/**
+Navigation - menu
+ */
+.navigation .navbar li {
+  margin-left: 1.2em;
+  margin-right: 1.2em; }
+  .navigation .navbar li a {
+    font-size: 1.5rem; }
 
 /** WooCommerce */
 .single-product .container.single-product {
   padding: 1.618em;
-  background-color: rgba(250, 250, 250, 0.8);
-}
+  background-color: rgba(250, 250, 250, 0.8); }
 
 /** 404 */
 /* Custom styles for the 404 error page */
@@ -32,31 +54,27 @@ body {
   padding: 20px;
   background: #f8f9fa;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
 
 .error-404 h1 {
   font-size: 10rem;
   font-weight: bold;
-  color: #dc3545; /* Bootstrap's danger color */
-}
+  color: #dc3545;
+  /* Bootstrap's danger color */ }
 
 .error-404 h2 {
-  color: #343a40; /* Bootstrap's dark color */
-}
+  color: #343a40;
+  /* Bootstrap's dark color */ }
 
 .error-404 p {
-  font-size: 1.25rem;
-}
+  font-size: 1.25rem; }
 
 .error-404 .btn-primary {
   font-size: 1rem;
-  padding: 10px 20px;
-}
+  padding: 10px 20px; }
 
 /** Footer */
 footer .container p {
-  color: #ffffff;
-}
+  color: #ffffff; }
 
 /*# sourceMappingURL=style.css.map */
