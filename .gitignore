@@ -1,0 +1,52 @@
+# Ignore common system files
+.DS_Store
+Thumbs.db
+
+# Ignore logs and databases
+*.log
+*.sql
+*.sqlite
+
+# Ignore OS generated files
+ehthumbs.db
+Icon?
+._*
+
+# Ignore node_modules folder if you're using Node/NPM
+node_modules/
+
+# Ignore Sass cache files
+.sass-cache/
+
+# Ignore compiled assets
+dist/
+build/
+*.css.map
+*.js.map
+
+# Ignore temporary files
+tmp/
+temp/
+
+# Ignore PHPStorm specific files
+.idea/
+
+# Composer vendor directory
+vendor/
+
+# Ignore WordPress uploads directory
+wp-content/uploads/
+wp-content/upgrade/
+
+# Ignore config and environment files
+.env
+.env.*
+!.env.example
+
+# Ignore WordPress core files
+wp-config.php
+wp-config-*.php
+
+# Ignore backup files
+*.bak
+*.backup
