@@ -6,7 +6,21 @@ body {
   background-image: url('img/skull-pattern.svg');
   background-position: center center;
   background-size: 100px 100px;
-  background-color: #000;
+  background-color: #F29C50;
   background-repeat: repeat;
   min-height: 100vh;
+}
+
+.item-row {
+  .item {
+    color: $white;
+    text-align: center;
+  }
+}
+
+/**
+Flex CSS
+ */
+.justify-content-space-between {
+  justify-content: space-between;
 }
