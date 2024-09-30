@@ -35,7 +35,9 @@ if ( ! function_exists( 'there_be_skulls_enqueue_styles' ) ) {
 		
 		/** Scripts */
 		wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array(), '5.3.0', true );
+    wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.js', array(), '1.0.0', true );
 	}
+
 }
 add_action( 'wp_enqueue_scripts', 'there_be_skulls_enqueue_styles' );
 
