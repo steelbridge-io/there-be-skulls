@@ -14,14 +14,13 @@
 
 <!-- Header -->
 <header id="masthead"
-        class="site-header bg-black py-3">
+        class="site-header bg-black">
 
   <!-- sale carousel -->
-  <div class="container header-carousel">
+  <div class="container-fluid header-carousel">
     <div id="carouselExampleIndicators"
-         class="carousel slide"
-         data-bs-ride="carousel"
-         style="width: 100%; height: 50px;">
+         class="container carousel slide"
+         data-bs-ride="carousel">
       <div class="carousel-inner"
            style="height: 100%;">
         <div class="carousel-item active">
@@ -34,21 +33,13 @@
           <span class="header-carousel-text">Even more Sale!!</span>
         </div>
       </div>
-      <!-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-               data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </button> -->
     </div>
   </div>
 
   <div class="container">
-    <div class="d-flex justify-content-between align-items-center">
-      <h1 class="text-4xl fw-bold text-danger tracking-wider">There Be Skulls</h1>
+    <div class="title-row d-flex justify-content-between align-items-center">
+      <!-- <h1 class="text-4xl fw-bold text-danger tracking-wider">There Be Skulls</h1> -->
+      <img class="logo" src="wp-content/themes/there-be-skulls/img/Skulls-Logo-8.png" alt="logo">
       <!-- <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,8 +59,7 @@
     </div>
   </div>
 </header>
-<div class="container-fluid d-flex justify-content-center navigation sticky-top"
-     style="height:100px;">
+<div id="navbar" class="container-fluid d-flex justify-content-center navigation sticky-top" style="height:50px;">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <button class="navbar-toggler"
