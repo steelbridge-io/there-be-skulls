@@ -1,10 +1,24 @@
 /** Header */
 
+.logged-in {
+  .sticky-top {
+    top: 32px;
+  }
+}
+
+.title-row {
+  img.logo {
+    max-width: 80px;
+  }
+}
+
 /**
 Header Carousel
  */
 
 .header-carousel {
+  background-color: #0BBFBF;
+  margin-bottom: 1em;
   .carousel-item {
     .header-carousel-text {
       color: $white;
@@ -17,6 +31,7 @@ Header Carousel
 Navigation - menu
  */
 .navigation {
+  padding-bottom: 1em;
   background-color: #000;
   .navbar {
     li {
@@ -27,4 +42,12 @@ Navigation - menu
       }
     }
   }
+}
+
+.is-sticky {
+  /* Add your desired styles here */
+  background-color: #D93654;
+  transition: background-color 0.25s;
+  padding-bottom: 0;
+  transition: padding-bottom 0.15s;
 }
