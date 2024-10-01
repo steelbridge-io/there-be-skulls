@@ -8,7 +8,10 @@
 
 .title-row {
   img.logo {
-    max-width: 80px;
+    max-width: 200px;
+    position: absolute;
+    z-index: 1200;
+    top: 5em;
   }
 }
 
@@ -17,14 +20,18 @@ Header Carousel
  */
 
 .header-carousel {
-  background-color: #0BBFBF;
+  background-color: #D9D3C7;
   margin-bottom: 1em;
   .carousel-item {
     .header-carousel-text {
-      color: $white;
+      color: #0D0D0D;
       font-size: 1.5rem;
     }
   }
+}
+
+#masthead {
+  background-color: #595958;
 }
 
 /**
@@ -32,7 +39,8 @@ Navigation - menu
  */
 .navigation {
   padding-bottom: 1em;
-  background-color: #000;
+  background-color: #595958;
+  transition: background-color 0.25s;
   .navbar {
     li {
       margin-left: 1.2em;
@@ -46,7 +54,7 @@ Navigation - menu
 
 .is-sticky {
   /* Add your desired styles here */
-  background-color: #D93654;
+  background-color: #A6A198;
   transition: background-color 0.25s;
   padding-bottom: 0;
   transition: padding-bottom 0.15s;
