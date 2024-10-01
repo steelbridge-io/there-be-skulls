@@ -23,7 +23,7 @@ exit; // Exit if accessed directly
 
 <!-- Category row #1 -->
 <section class="py-5">
-    <div class="container">
+  <div class="container category-container">
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4 justify-content-center">
         <div class="col">
             <div class="card bg-dark text-light border-secondary h-100">
@@ -122,7 +122,7 @@ exit; // Exit if accessed directly
 
 <!-- Category row #2 -->
 <section class="py-5">
-    <div class="container">
+    <div class="container category-container">
         <!-- <h3 class="display-5 fw-bold text-center mb-5 text-uppercase">Featured Skulls</h3> -->
         <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4 justify-content-center">
 
@@ -210,7 +210,7 @@ exit; // Exit if accessed directly
 
 <!-- Category row #3 -->
 <section class="py-5">
-  <div class="container">
+  <div class="container category-container">
     <!-- <h3 class="display-5 fw-bold text-center mb-5 text-uppercase">Featured Skulls</h3> -->
     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4 justify-content-center">
 
@@ -298,7 +298,7 @@ exit; // Exit if accessed directly
 
 <!-- Category Row #4 -->
 <section class="py-5">
-  <div class="container">
+  <div class="container category-container">
     <!-- <h3 class="display-5 fw-bold text-center mb-5 text-uppercase">Featured Skulls</h3> -->
     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4 justify-content-center">
 
