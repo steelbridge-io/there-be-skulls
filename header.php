@@ -14,7 +14,7 @@
 
 <!-- Header -->
 <header id="masthead"
-        class="site-header bg-black">
+        class="site-header">
 
   <!-- sale carousel -->
   <div class="container-fluid header-carousel">
@@ -39,7 +39,7 @@
   <div class="container">
     <div class="title-row d-flex justify-content-between align-items-center">
       <!-- <h1 class="text-4xl fw-bold text-danger tracking-wider">There Be Skulls</h1> -->
-      <img class="logo" src="wp-content/themes/there-be-skulls/img/Skulls-Logo-8.png" alt="logo">
+      <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp" alt="logo">
       <!-- <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
