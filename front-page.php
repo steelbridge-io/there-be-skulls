@@ -12,7 +12,7 @@
  */
 
 // Include the header template
-get_header();
+get_header('frontpage');
 
 // Ensure WordPress and WooCommerce are available
 if ( ! defined( 'ABSPATH' ) ) {
