@@ -11,6 +11,9 @@
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
+<?php if (is_front_page()) : ?>
+    <div class="overlay"></div>
+<?php endif; ?>
 
 <!-- Header -->
 <header id="masthead"
@@ -36,10 +39,11 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="title-row d-flex justify-content-between align-items-center">
+  <!-- <div class="container">
+    <div class="title-row d-flex justify-content-between align-items-center"> -->
       <!-- <h1 class="text-4xl fw-bold text-danger tracking-wider">There Be Skulls</h1> -->
-      <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp" alt="logo">
+     <!-- <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp"
+            alt="logo"> -->
       <!-- <nav class="navbar navbar-expand-lg navbar-dark">
           <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,10 +60,12 @@
               </div>
           </div>
       </nav> -->
-    </div>
-  </div>
+   <!-- </div>
+  </div> -->
 </header>
-<div id="navbar" class="container-fluid d-flex justify-content-center navigation sticky-top" style="height:50px;">
+<div id="navbar" class="navbar-logo container-fluid d-flex justify-content-center align-items-cneter navigation
+sticky-top">
+    <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp" alt="logo">
   <nav class="navbar navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <button class="navbar-toggler"
