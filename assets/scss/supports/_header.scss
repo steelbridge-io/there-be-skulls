@@ -6,14 +6,75 @@
   }
 }
 
-.title-row {
-  img.logo {
-    max-width: 200px;
-    position: absolute;
-    z-index: 1200;
-    top: 5em;
+#navbar {
+  height: 63px;
+  .logo {
+    max-width: 48px;
+    height: auto;
+    position: initial;
+    left: 50%;
   }
 }
+
+// Base styling for navbar
+#navbar-header {
+  height:63px;
+  justify-items: center;
+  .logo {
+    max-width: 300px;
+    transition: all 1.5s ease-in-out;
+    position: absolute;
+    top: 15em;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.small .logo {
+    max-width: 48px;
+    top: 8px;
+    left: 29.7em;
+    transform: translate(0, 0);
+
+  }
+  &.no-transition .logo {
+    transition: none !important;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: opacity 1.5s ease-in-out; // Match the logo transition duration
+  z-index: 999; // Behind the logo
+  opacity: 0.8;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+.fade-out-complete {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.is-sticky {
+  width: 100%;
+  background-color: #A6A198;
+  padding: 0;
+  transition: background-color 0.25s, padding-bottom 0.25s;
+  z-index: 1000;
+}
+
 
 /**
 Header Carousel
@@ -21,7 +82,6 @@ Header Carousel
 
 .header-carousel {
   background-color: #D9D3C7;
-  margin-bottom: 1em;
   .carousel-item {
     .header-carousel-text {
       color: #0D0D0D;
@@ -39,7 +99,7 @@ Navigation - menu
  */
 .navigation {
   margin-bottom: 5em;
-  padding-bottom: 1em;
+  /*padding-bottom: 1em;*/
   background-color: #595958;
   transition: background-color 0.25s;
   .navbar {
@@ -51,12 +111,4 @@ Navigation - menu
       }
     }
   }
-}
-
-.is-sticky {
-  /* Add your desired styles here */
-  background-color: #A6A198;
-  transition: background-color 0.25s;
-  padding-bottom: 0;
-  transition: padding-bottom 0.15s;
 }
