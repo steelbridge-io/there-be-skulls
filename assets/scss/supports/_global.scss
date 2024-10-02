@@ -1,8 +1,7 @@
 /** Global CSS */
 
-html, body {
+ body {
   height: 100%;
-  margin: 0;
 }
 
 .container-wrapper {
@@ -34,4 +33,8 @@ Flex CSS
  */
 .justify-content-space-between {
   justify-content: space-between;
+}
+
+.align-items-cneter {
+  align-items: center;
 }
