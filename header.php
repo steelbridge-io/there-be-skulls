@@ -66,34 +66,28 @@
 <div id="navbar" class="navbar-logo container-fluid d-flex justify-content-center align-items-cneter navigation
 sticky-top">
     <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp" alt="logo">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <div class="container-fluid">
-      <button class="navbar-toggler"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarNav"
-              aria-controls="navbarNav"
-              aria-expanded="false"
-              aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse"
-           id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a href="/"
-                                  class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="/shop"
-                                  class="nav-link">Shop</a></li>
-          <li class="nav-item"><a href="/about"
-                                  class="nav-link">About</a></li>
-          <li class="nav-item"><a href="/contact"
-                                  class="nav-link">Contact</a></li>
-          <li class="nav-item"><a href="/cart"
-                                  class="nav-link">Cart ({{ cart_count }})</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <!--<a class="navbar-brand" href="#">Navbar</a> -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="main-menu">
+				<?php
+				wp_nav_menu(array(
+					'theme_location' => 'main-menu',
+					'container' => false,
+					'menu_class' => '',
+					'fallback_cb' => '__return_false',
+					'items_wrap' => '<ul id="%1$s" class="navbar-nav me-auto mb-2 mb-md-0 %2$s">%3$s</ul>',
+					'depth' => 2,
+					'walker' => new bootstrap_5_wp_nav_menu_walker()
+				));
+				?>
+            </div>
+        </div>
+    </nav>
 </div>
 <div class="container-wrapper">
 
