@@ -59,3 +59,10 @@ function add_livereload_script() {
 	}
 }
 add_action('wp_enqueue_scripts', 'add_livereload_script');
+
+/**
+ *  Bootstrap 5 WordPress Navbar Walker
+ */
+include_once get_template_directory() . '/inc/bootstrap-5-wordpress-navbar-walker.php';
+
+register_nav_menu('main-menu', 'Main menu');
