@@ -26,8 +26,8 @@ body {
   background-size: 100px 100px;
   background-color: #232526;
   background-repeat: repeat;
-  display: flex;
-  flex-direction: column;
+  /*display: flex;
+  flex-direction: column;*/
 }
 
 .item-row .item {
@@ -70,7 +70,7 @@ Front Page
 }
 
 #navbar-header {
-  height: 63px;
+  /*height:63px;*/
   justify-items: center;
 }
 #navbar-header .logo {
@@ -84,7 +84,8 @@ Front Page
 #navbar-header.small .logo {
   max-width: 48px;
   top: 8px;
-  left: 29.7em;
+  left: 15px;
+  /*position: initial;*/
   transform: translate(0, 0);
 }
 #navbar-header.no-transition .logo {
@@ -150,11 +151,11 @@ Navigation - menu
   transition: background-color 0.25s;
 }
 .navigation .navbar li {
-  margin-left: 1.2em;
-  margin-right: 1.2em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 .navigation .navbar li a {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 }
 
 /** WooCommerce */
