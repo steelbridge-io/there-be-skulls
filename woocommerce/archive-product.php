@@ -19,6 +19,8 @@ defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
 
+include get_template_directory() . '/customizer/category-slugs.php';
+
 echo '<div id="archive-product" class="achive-product-wrap">';
 echo '<div class="container">';
 /**
@@ -88,6 +90,39 @@ if ( woocommerce_product_loop() ) {
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'woocommerce_after_main_content' );
+
+?>
+  <section class="py-5">
+    <div id="product-category-archive" class="container category-container-archive">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
+        <!-- Category Sections -->
+        <?php foreach ($category_slugs as $category_slug) : ?>
+          <?php
+          $category = get_term_by('slug', $category_slug, 'product_cat');
+          if ($category) :
+            $category_id = $category->term_id;
+            $thumbnail_id = get_term_meta($category_id, 'thumbnail_id', true);
+            $image_url = wp_get_attachment_url($thumbnail_id);
+            $category_link = get_term_link($category_id, 'product_cat');
+            ?>
+            <div class="col">
+              <a href="<?php echo esc_url($category_link); ?>">
+              <div class="card bg-dark text-light border-secondary">
+                <?php if ($image_url): ?>
+                  <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>">
+                <?php endif; ?>
+                <div class="card-body">
+                  <h5 class="card-title text-danger text-align-center"><?php echo esc_html($category->name); ?></h5>
+                </div>
+              </div>
+              </a>
+            </div>
+          <?php endif; ?>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </section>
+<?php
 
 /**
  * Hook: woocommerce_sidebar.
