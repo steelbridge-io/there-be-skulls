@@ -11,6 +11,8 @@
  */
 
 get_header();
+
+include get_template_directory() . '/customizer/category-slugs.php';
 ?>
 
 <div class="container mt-5">
@@ -56,5 +58,38 @@ get_header();
 		</div>
 	</div>
 </div>
+
+<section class="py-5">
+  <div class="container category-container">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-6 row-cols-lg-6 g-4 justify-content-center">
+      <!-- Category Sections -->
+      <?php foreach ($category_slugs as $category_slug) : ?>
+        <?php
+        $category = get_term_by('slug', $category_slug, 'product_cat');
+        if ($category) :
+          $category_id = $category->term_id;
+          $thumbnail_id = get_term_meta($category_id, 'thumbnail_id', true);
+          $image_url = wp_get_attachment_url($thumbnail_id);
+          $category_link = get_term_link($category_id, 'product_cat');
+          ?>
+          <div class="col">
+            <div class="card bg-dark text-light border-secondary h-100">
+              <?php if ($image_url): ?>
+                <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>">
+              <?php endif; ?>
+              <div class="card-body">
+                <h4 class="card-title text-danger"><?php echo esc_html($category->name); ?></h4>
+                <p class="card-text"><?php echo esc_html($category->description); ?></p>
+                <a href="<?php echo esc_url($category_link); ?>" class="btn btn-danger w-100">
+                  View All Items in <?php echo esc_html($category->name); ?>
+                </a>
+              </div>
+            </div>
+          </div>
+        <?php endif; ?>
+      <?php endforeach; ?>
+    </div>
+  </div>
+</section>
 
 <?php get_footer(); ?>
