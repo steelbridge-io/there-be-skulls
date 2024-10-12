@@ -34,11 +34,11 @@
 				      // Add 'active' class to the first carousel item
 				      $active_class = ( $key === 0 ) ? ' active' : '';
 				      ?>
-                      <div class="carousel-item<?php echo esc_attr( $active_class ); ?>">
-                          <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>">
-                              <span class="header-carousel-text"><?php echo esc_html( $value ); ?></span>
-                          </a>
-                      </div>
+                <div class="carousel-item<?php echo esc_attr( $active_class ); ?>">
+                    <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>">
+                        <span class="header-carousel-text"><?php echo esc_html( $value ); ?></span>
+                    </a>
+                </div>
 				      <?php
 			      }
 		      }
