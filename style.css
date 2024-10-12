@@ -9,6 +9,19 @@
 */
 /** Colors */
 /** Global CSS */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+.site-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; }
+
+.site-content {
+  flex: 1; }
+
 a {
   text-decoration: none; }
 
@@ -177,7 +190,7 @@ Navigation - menu
     right: 10px;
     background: transparent;
     border: none;
-    color: #fff;
+    color: #ffffff;
     font-size: 2.5rem; } }
 @media (min-width: 1199.99px) {
   .close-menu {
@@ -210,6 +223,11 @@ Navigation - menu
     overflow-x: hidden;
     /* Prevent horizontal scrolling */
     padding: 2em 0; } }
+/** Page CSS */
+.page .page-container {
+  background-color: #D9D3C7;
+  padding: 3.618em 0; }
+
 /** WooCommerce */
 .woocommerce-checkout .container-wrapper .container {
   background-color: #D9D3C7;
