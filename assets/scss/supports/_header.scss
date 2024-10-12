@@ -204,3 +204,19 @@ Navigation - menu
     }
   }
 }
+
+
+
+
+/* Media query for landscape orientation on tablets and mobiles */
+@media (max-width: 926px) and (orientation: landscape) {
+  #menu-main {
+    list-style: none; /* Remove default list styling */
+    margin: 0; /* Remove default margins */
+    padding: 2em 0; /* Remove default padding */
+    max-height: 100vh; /* Set maximum height to the viewport height */
+    overflow-y: auto; /* Allow vertical scrolling if content overflows */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    padding: 2em 0;
+  }
+}
