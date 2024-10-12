@@ -15,6 +15,7 @@
 <?php if (is_front_page()) : ?>
     <div class="overlay"></div>
 <?php endif; ?>
+<div class="site-wrapper">
 
 <!-- Header -->
 <header id="masthead" class="site-header">
@@ -49,6 +50,7 @@
   </div>
   
 </header>
+<div class="site-content">
 <?php if ( !empty(get_theme_mod( 'skulls_carousel_item_1'))) { ?>
 <div id="navbar-header" class="navbar-logo container-fluid navigation d-flex justify-content-between align-items-center
 sticky-top">
