@@ -1,8 +1,20 @@
 /** Header */
 
+// Hamburger icon alignment
+.navbar-toggler {
+  right: 15px;
+}
+
+.nav-wrapper {
+  background-color: #595958;
+}
+
 .logged-in {
   .sticky-top {
     top: 32px;
+  }
+  .sticky-top.no-theme-mod {
+    top: 0;
   }
 }
 
@@ -31,11 +43,9 @@
 
   &.small .logo {
     max-width: 48px;
-    top: 8px;
-    left: 15px;
-    /*position: initial;*/
+    top: 5px;
+    left: calc(3% + 10px);
     transform: translate(0, 0);
-
   }
   &.no-transition .logo {
     transition: none !important;
@@ -76,7 +86,6 @@
   z-index: 1000;
 }
 
-
 /**
 Header Carousel
  */
@@ -84,9 +93,11 @@ Header Carousel
 .header-carousel {
   background-color: #D9D3C7;
   .carousel-item {
-    .header-carousel-text {
-      color: #0D0D0D;
-      font-size: 1.5rem;
+    a {
+      .header-carousel-text {
+        color: #0D0D0D;
+        font-size: 1.2rem;
+      }
     }
   }
 }
@@ -110,6 +121,86 @@ Navigation - menu
       a {
         font-size: 1.1rem;
       }
+    }
+  }
+}
+
+// Adjust the menu when collapsed
+@media (max-width: 1199.98px) {
+  .navbar-toggler {
+    margin-right: 15px;
+  }
+
+  .navbar-collapse {
+    transition: transform 0.3s ease;
+    transform: translateX(100%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 300px;
+    background-color: #343a40;
+    z-index: 999;
+
+    // Ensuring the menu items are aligned to left of the right sliding panel
+    padding: 1rem;
+  }
+
+  .navbar-collapse.show {
+    transform: translateX(0);
+  }
+
+  // Hiding the logo in mobile view
+  /*.navbar-logo .logo {
+    display: none;
+  }*/
+
+  // Adding padding to main content when menu is open
+  .navbar .container-fluid {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .close-menu {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+  }
+}
+
+// Hide close button on larger screens
+@media (min-width: 1199.99px) {
+  .close-menu {
+    display: none;
+  }
+  #navbar-header {
+    .container {
+      .navbar {
+        margin: 0 auto 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 1199.98px) {
+  #navbar-header {
+    .container {
+      .navbar {
+        margin: 0 0 0 auto;
+      }
+    }
+  }
+  #navbar-header {
+    &.small .logo {
+      max-width: 48px;
+      top: 5px;
+      left: calc(9% + 10px);
+      transform: translate(0, 0);
     }
   }
 }
