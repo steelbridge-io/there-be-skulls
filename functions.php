@@ -44,6 +44,13 @@ if ( ! function_exists( 'there_be_skulls_enqueue_styles' ) ) {
 }
 add_action( 'wp_enqueue_scripts', 'there_be_skulls_enqueue_styles' );
 
+function skulls_customizer_styles() {
+	wp_enqueue_style( 'customizer-styles', get_template_directory_uri() . '/customizer/css/customizer-styles.css',
+		array(),
+		'1.0.0', 'all' );
+}
+add_action( 'customize_controls_enqueue_scripts', 'skulls_customizer_styles' );
+
 function add_custom_body_class($classes) {
 	// Add the 'text-light' class to the body classes array
 	$classes[] = '';
