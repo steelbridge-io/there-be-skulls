@@ -80,7 +80,7 @@
 
 .is-sticky {
   width: 100%;
-  background-color: #A6A198;
+  background-color: $nav_grey;
   padding: 0;
   transition: background-color 0.25s, padding-bottom 0.25s;
   z-index: 1000;
@@ -91,11 +91,11 @@ Header Carousel
  */
 
 .header-carousel {
-  background-color: #D9D3C7;
+  background-color: $white_background;
   .carousel-item {
     a {
       .header-carousel-text {
-        color: #0D0D0D;
+        color: $font_dark;
         font-size: 1.2rem;
       }
     }
@@ -103,7 +103,7 @@ Header Carousel
 }
 
 #masthead {
-  background-color: #595958;
+  background-color: $masthead;
 }
 
 /**
@@ -112,7 +112,7 @@ Navigation - menu
 .navigation {
   margin-bottom: 5em;
   /*padding-bottom: 1em;*/
-  background-color: #595958;
+  background-color: $masthead;
   transition: background-color 0.25s;
   .navbar {
     li {
@@ -168,7 +168,7 @@ Navigation - menu
     right: 10px;
     background: transparent;
     border: none;
-    color: #fff;
+    color: $white;
     font-size: 2.5rem;
   }
 }
