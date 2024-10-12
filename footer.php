@@ -2,6 +2,7 @@
 
 ?>
 </div> <!-- /container-height -->
+</div>
 <footer class="bg-black py-4 text-center">
 	<div class="container">
 		<p class=" small mb-2">&copy; 2024 There Will Be Skulls. All Rights Reserved.</p>
@@ -14,6 +15,5 @@
 </footer>
 
 <?php wp_footer(); ?>
-
 </body>
 </html>
