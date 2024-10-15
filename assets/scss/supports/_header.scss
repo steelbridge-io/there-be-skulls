@@ -1,5 +1,14 @@
 /** Header */
 
+#title-front-page {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+#title-front-page.fade-in {
+  opacity: 1; /* Visible after fade-in */
+}
+
 // Hamburger icon alignment
 .navbar-toggler {
   right: 15px;
@@ -58,10 +67,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.9);
   transition: opacity 1.5s ease-in-out; // Match the logo transition duration
   z-index: 999; // Behind the logo
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .fade-out {
@@ -204,9 +213,6 @@ Navigation - menu
     }
   }
 }
-
-
-
 
 /* Media query for landscape orientation on tablets and mobiles */
 @media (max-width: 926px) and (orientation: landscape) {

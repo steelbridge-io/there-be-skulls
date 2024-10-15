@@ -1,8 +1,11 @@
 /** Products */
 .card {
-  img {
-    height: 350px;
-    object-fit: cover;
+  a {
+    img {
+      height: 350px;
+      object-fit: cover;
+      width: 100%;
+    }
   }
 }
 
@@ -11,9 +14,12 @@
     .row {
       .col {
         .card {
-          img {
-            height: auto;
-            object-fit: cover;
+          a {
+            img {
+              height: auto;
+              object-fit: cover;
+              width: 100%;
+            }
           }
         }
       }

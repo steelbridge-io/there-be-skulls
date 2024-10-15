@@ -5,6 +5,39 @@
 Front Page
  */
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Fjord One", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p, a, li, button, .btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+h1.trade-winds-regular {
+  font-family: "Trade Winds", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: $white;
+  letter-spacing: 7px;
+  font-size: 6vw;  // Use viewport width units for responsiveness
+}
+
+@media (max-width: 599px) {
+  h1.trade-winds-regular {
+    font-size: 2rem;  // Below 600px, reduce the font size
+  }
+}
+
+h1.trade-winds-regular {
+  &.nav-title {
+    font-size: 1.5rem;
+  }
+}
+
 .home {
   .container {
     h3 {
