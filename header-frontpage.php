@@ -60,7 +60,7 @@ sticky-top">
     sticky-top no-theme-mod">
     <?php } ?>
     <div class="container d-flex justify-content-between align-items-center logo-animation">
-    <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp" alt="logo">
+    <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/there-be-skulls-logo.webp" alt="logo">
     <nav class="navbar navbar-expand-xl navbar-dark">
         <div class="container">
             <!--<a class="navbar-brand" href="#">Navbar</a> -->

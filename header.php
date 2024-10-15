@@ -55,7 +55,7 @@
     <div id="navbar" class="navbar-logo container-fluid navigation d-flex justify-content-between align-items-center sticky-top no-theme-mod">
 		<?php } ?>
         <div class="container d-flex justify-content-between align-items-center">
-        <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/Skulls-Images-Preview.webp" alt="logo">
+        <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/there-be-skulls-logo.webp" alt="logo">
         <nav class="navbar navbar-expand-xl navbar-dark">
             <div class="container-fluid d-flex justify-content-end">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
