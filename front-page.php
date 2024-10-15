@@ -22,6 +22,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 include get_template_directory() . '/customizer/category-slugs.php';
 
 ?>
+
+<h1 id="title-front-page" class="trade-winds-regular text-align-center">THERE BE SKULLS</h1>
+
   <section class="py-5">
     <div class="container category-container">
       <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-2 g-4 justify-content-center">
@@ -38,7 +41,9 @@ include get_template_directory() . '/customizer/category-slugs.php';
             <div class="col">
               <div class="card bg-dark text-light border-secondary h-100">
                 <?php if ($image_url): ?>
+                <a href="<?php echo esc_url($category_link); ?>">
                   <img src="<?php echo esc_url($image_url); ?>" alt="<?php echo esc_attr($category->name); ?>">
+                </a>
                 <?php endif; ?>
                 <div class="card-body">
                   <h4 class="card-title text-danger"><?php echo esc_html($category->name); ?></h4>
@@ -84,7 +89,9 @@ include get_template_directory() . '/customizer/category-slugs.php';
             <div class="col">
               <div class="card bg-dark text-light border-secondary h-100">
                 <?php if (has_post_thumbnail()) : ?>
+                <a href="<?php the_permalink(); ?>">
                   <img src="<?php echo get_the_post_thumbnail_url($loop->post->ID, 'large'); ?>" alt="<?php the_title(); ?>" class="card-img-top">
+                </a>
                 <?php endif; ?>
                 <div class="card-body">
                   <h4 class="card-title text-danger"><?php the_title(); ?></h4>
@@ -107,17 +114,13 @@ include get_template_directory() . '/customizer/category-slugs.php';
     <div class="container">
       <?php
       // Fetch the term object by its slug
-      $term = get_term_by('slug', 'accessories', 'product_cat');
-
-      // Check if the term is valid and exists
-      $category_name = $term ? $term->name : 'Featured Skulls';
+      $selected_category = get_theme_mod('selected_woocommerce_category', 'accessories'); // Default to 'accessories' if not set
       ?>
-      <h3 class="display-5 fw-bold text-center mb-5 text-uppercase"><?php echo htmlspecialchars($category_name, ENT_QUOTES, 'UTF-8'); ?></h3>
+      <h3 class="display-5 fw-bold text-center mb-5 text-uppercase"><?php echo htmlspecialchars($selected_category, ENT_QUOTES, 'UTF-8'); ?></h3>
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">
         <!--<h3 class="display-5 fw-bold text-center mb-5 text-uppercase">Featured Skulls</h3>
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4 justify-content-center">-->
         <?php
-
         $args = array(
           'post_type' => 'product',
           'posts_per_page' => 4,
@@ -125,14 +128,13 @@ include get_template_directory() . '/customizer/category-slugs.php';
           'orderby' => 'date',
           'tax_query' => array(
             array(
-              'taxonomy' => 'product_cat',  // Change this to 'product_cat' for product categories
+              'taxonomy' => 'product_cat',  // WooCommerce product category taxonomy
               'field' => 'slug',            // Use 'slug' to specify category by its slug
-              'terms' => 'accessories', // Provide the slug of the desired category
+              'terms' => $selected_category, // Use the selected category
               'operator' => 'IN'
             )
           ),
         );
-
         $loop = new WP_Query($args);
         if ($loop->have_posts()) :
           while ($loop->have_posts()) :
@@ -141,7 +143,9 @@ include get_template_directory() . '/customizer/category-slugs.php';
             <div class="col">
               <div class="card bg-dark text-light border-secondary h-100">
                 <?php if (has_post_thumbnail()) : ?>
-                  <img src="<?php echo get_the_post_thumbnail_url($loop->post->ID, 'large'); ?>" alt="<?php the_title(); ?>" class="card-img-top">
+                  <a href="<?php the_permalink(); ?>">
+                    <img src="<?php echo get_the_post_thumbnail_url($loop->post->ID, 'large'); ?>" alt="<?php the_title(); ?>" class="card-img-top">
+                  </a>
                 <?php endif; ?>
                 <div class="card-body">
                   <h4 class="card-title text-danger"><?php the_title(); ?></h4>
@@ -154,7 +158,7 @@ include get_template_directory() . '/customizer/category-slugs.php';
         else : ?>
           <p class="text-center">No featured products found.</p>
         <?php endif;
-        wp_reset_postdata(); ?>
+        wp_reset_postdata(); ?>?>
       </div>
     </div>
   </section>
