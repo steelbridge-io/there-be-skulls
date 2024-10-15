@@ -20,7 +20,9 @@ function your_theme_setup() {
 add_action( 'after_setup_theme', 'your_theme_setup' );
 
 // Adds customizer code
+require get_template_directory() . '/customizer/general-customizer.php';
 require get_template_directory() . '/customizer/frontpage-customizer.php';
+
 
 if ( ! function_exists( 'there_be_skulls_enqueue_styles' ) ) {
 	/**
