@@ -1,4 +1,8 @@
-<?php ?>
+<?php
+/**
+ * WordPress Header for front-page.php
+ */
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +64,14 @@ sticky-top">
     sticky-top no-theme-mod">
     <?php } ?>
     <div class="container d-flex justify-content-between align-items-center logo-animation">
-    <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/there-be-skulls-logo.webp" alt="logo">
+      <?php
+      $custom_logo_id = get_theme_mod('custom_logo');
+      if ($custom_logo_id) {
+        echo '<img class="logo" src="' . esc_url($custom_logo_id) . '" alt="' . get_bloginfo('name') . '">';
+      } else {
+        echo '<h1 class="nav-title trade-winds-regular text-align-center logo">' . get_bloginfo('name') . '</h1>';
+      }
+      ?>
     <nav class="navbar navbar-expand-xl navbar-dark">
         <div class="container">
             <!--<a class="navbar-brand" href="#">Navbar</a> -->

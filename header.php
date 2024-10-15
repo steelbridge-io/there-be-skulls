@@ -1,4 +1,8 @@
-<?php ?>
+<?php
+/**
+ * WordPress Header
+ */
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +59,14 @@
     <div id="navbar" class="navbar-logo container-fluid navigation d-flex justify-content-between align-items-center sticky-top no-theme-mod">
 		<?php } ?>
         <div class="container d-flex justify-content-between align-items-center">
-        <img class="logo" src="http://smokemyglass.local/wp-content/uploads/2024/10/there-be-skulls-logo.webp" alt="logo">
+          <?php
+          $custom_logo_id = get_theme_mod('custom_logo');
+          if ($custom_logo_id) {
+            echo '<img class="logo" src="' . esc_url($custom_logo_id) . '" alt="' . get_bloginfo('name') . '">';
+          } else {
+            echo '<h1 class="nav-title trade-winds-regular text-align-center logo">' . get_bloginfo('name') . '</h1>';
+          }
+          ?>
         <nav class="navbar navbar-expand-xl navbar-dark">
             <div class="container-fluid d-flex justify-content-end">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
