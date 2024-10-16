@@ -91,6 +91,26 @@ h1.trade-winds-regular.nav-title {
   color: #ffffff; }
 
 /** Header */
+/** nav */
+/* Ensure the dropdowns are correctly positioned */
+.dropdown-submenu {
+  position: relative; }
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -1px;
+  display: none; }
+
+/* Show dropdown menu on hover */
+.dropdown:hover > .dropdown-menu {
+  display: block; }
+
+/* Ensure child dropdown menu shows when hovering over the parent menu item */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block; }
+
+/** /nav */
 #title-front-page {
   opacity: 0;
   transition: opacity 1s ease-in-out; }
