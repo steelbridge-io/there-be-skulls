@@ -22,6 +22,7 @@ add_action( 'after_setup_theme', 'your_theme_setup' );
 // Adds customizer code
 require get_template_directory() . '/customizer/general-customizer.php';
 require get_template_directory() . '/customizer/frontpage-customizer.php';
+require get_template_directory() . '/inc/custom-login.php';
 
 
 if ( ! function_exists( 'there_be_skulls_enqueue_styles' ) ) {
@@ -29,7 +30,6 @@ if ( ! function_exists( 'there_be_skulls_enqueue_styles' ) ) {
 	 * Enqueue theme styles.
 	 */
 	function there_be_skulls_enqueue_styles() {
-		
 		/** Styles */
 		wp_enqueue_style( 'bootstrap-5', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
 			array(), '5.3.0', 'all' );
@@ -45,6 +45,11 @@ if ( ! function_exists( 'there_be_skulls_enqueue_styles' ) ) {
 
 }
 add_action( 'wp_enqueue_scripts', 'there_be_skulls_enqueue_styles' );
+
+function custom_login_enqueue_styles() {
+  wp_enqueue_style('custom-login', get_stylesheet_directory_uri() . '/assets/css/custom-login.css');
+}
+add_action('login_enqueue_scripts', 'custom_login_enqueue_styles');
 
 function skulls_customizer_styles() {
 	wp_enqueue_style( 'customizer-styles', get_template_directory_uri() . '/customizer/css/customizer-styles.css',
