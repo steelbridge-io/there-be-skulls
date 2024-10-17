@@ -1,7 +1,7 @@
 /** Header */
 
 /** nav */
-/* Ensure the dropdowns are correctly positioned */
+
 .dropdown-submenu {
   position: relative;
 }
@@ -13,12 +13,31 @@
   display: none;
 }
 
+.menu-item-has-children {
+  .dropdown-menu {
+    background-color: $masthead;
+    .dropdown-item:hover,
+    .dropdown-item:focus,
+    .dropdown-item:active {
+      background-color: $masthead;
+    }
+    .dropdown-item {
+      color: $white;
+    }
+  }
+}
+
+.dropdown-item,
+.dropdown-item:active
+.dropdown-item.active {
+  background-color: $masthead !important;
+}
+
 /* Show dropdown menu on hover */
 .dropdown:hover > .dropdown-menu {
   display: block;
 }
 
-/* Ensure child dropdown menu shows when hovering over the parent menu item */
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
 }
@@ -62,7 +81,6 @@
   }
 }
 
-// Base styling for navbar
 #navbar-header {
   /*height:63px;*/
   justify-items: center;
@@ -159,6 +177,36 @@ Navigation - menu
   }
 }
 
+// Hide close button on larger screens
+@media (min-width: 1199.99px) {
+  .close-menu {
+    display: none;
+  }
+  #navbar-header {
+    .container {
+      .navbar {
+        margin: 0 auto 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  /* Handle text overflow */
+  .dropdown-menu .dropdown-item {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .dropdown-submenu > .dropdown-menu {
+    left: 100%;
+    right: auto;
+    top: 0;
+    margin-top: -1px;
+  }
+}
+
 // Adjust the menu when collapsed
 @media (max-width: 1199.98px) {
   .navbar-toggler {
@@ -172,7 +220,7 @@ Navigation - menu
     top: 0;
     right: 0;
     height: 100%;
-    width: 300px;
+    width: 60%;
     background-color: #343a40;
     z-index: 999;
 
@@ -183,11 +231,6 @@ Navigation - menu
   .navbar-collapse.show {
     transform: translateX(0);
   }
-
-  // Hiding the logo in mobile view
-  /*.navbar-logo .logo {
-    display: none;
-  }*/
 
   // Adding padding to main content when menu is open
   .navbar .container-fluid {
@@ -205,23 +248,7 @@ Navigation - menu
     color: $white;
     font-size: 2.5rem;
   }
-}
 
-// Hide close button on larger screens
-@media (min-width: 1199.99px) {
-  .close-menu {
-    display: none;
-  }
-  #navbar-header {
-    .container {
-      .navbar {
-        margin: 0 auto 0 auto;
-      }
-    }
-  }
-}
-
-@media (max-width: 1199.98px) {
   #navbar-header {
     .container {
       .navbar {
@@ -240,14 +267,21 @@ Navigation - menu
 }
 
 /* Media query for landscape orientation on tablets and mobiles */
-@media (max-width: 926px) and (orientation: landscape) {
-  #menu-main {
-    list-style: none; /* Remove default list styling */
-    margin: 0; /* Remove default margins */
-    padding: 2em 0; /* Remove default padding */
-    max-height: 100vh; /* Set maximum height to the viewport height */
-    overflow-y: auto; /* Allow vertical scrolling if content overflows */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+@media (max-width: 1199.99px) and (orientation: landscape) {
+  #main-menu {
+    list-style: none;
+    margin: 0;
     padding: 2em 0;
+    height: 100vh !important;
+    max-height: 100vh;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    padding: 2em 0;
+  }
+}
+
+@media (max-width: 767.99px) {
+  .navbar-collapse {
+    width: 90%;
   }
 }
