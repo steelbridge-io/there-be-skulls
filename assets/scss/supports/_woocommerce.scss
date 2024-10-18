@@ -1,5 +1,30 @@
 /** WooCommerce */
 
+.woocommerce-notices-wrapper {
+  .woocommerce-message {
+    border-top-color: $button-danger;
+    outline: none;
+  }
+  .woocommerce-message::before {
+    color: $button-danger;
+  }
+  .woocommerce-info {
+    border-top-color: $dark;
+  }
+  .woocommerce-info::before {
+    color: $dark;
+  }
+}
+
+.wc-empty-cart-message {
+  .cart-empty.woocommerce-info {
+    border-top-color: $dark;
+  }
+  .woocommerce-info::before {
+    color: $dark;
+  }
+}
+
 .woocommerce-checkout {
   .container-wrapper {
     .container {
