@@ -198,3 +198,21 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+jQuery(document).ready(function($) {
+    function updateCartCount() {
+        // Gets the text from cart fragments update
+        var count = $('.cart-contents .cart-count').text();
+        // Applies it to our .cart-count
+        $('.cart-count').text(count);
+    }
+
+    // Binds to WooCommerce add or remove from cart events
+    $(document.body).on('added_to_cart removed_from_cart', function() {
+        updateCartCount();
+    });
+
+    // Initial update of the cart count
+    updateCartCount();
+});
