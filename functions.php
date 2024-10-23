@@ -120,4 +120,40 @@ function mytheme_disable_conflicting_scripts() {
 }
 add_action('admin_enqueue_scripts', 'mytheme_disable_conflicting_scripts', 20);
 
+/**
+ * Add cart notification to nav
+ */
+// Add cart count to our primary navigation
+add_filter('wp_nav_menu_items', 'add_cart_count_to_menu', 10, 2);
+function add_cart_count_to_menu($items, $args) {
+  if ($args->theme_location == 'main-menu') {
+    // Get the cart count
+    $count = WC()->cart->get_cart_contents_count();
+    ob_start();
+    ?>
+    <li class="menu-item cart-menu">
+      <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>">
+        Cart <span class="cart-count"><?php echo $count; ?></span>
+      </a>
+    </li>
+    <?php
+    $cart_link = ob_get_clean();
+    $items .= $cart_link;
+  }
+  return $items;
+}
+
+// Ensure that the cart fragment is included in the fragments
+add_filter('woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment');
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+  $count = WC()->cart->get_cart_contents_count();
+  ob_start();
+  ?>
+  <a class="cart-contents" href="<?php echo wc_get_cart_url(); ?>">
+    Cart <span class="cart-count"><?php echo $count; ?></span>
+  </a>
+  <?php
+  $fragments['a.cart-contents'] = ob_get_clean();
+  return $fragments;
+}
 
