@@ -1,0 +1,51 @@
+.container-fluid {
+  &.header-carousel {
+    --bs-gutter-x: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: block;
+    position: absolute;
+    top: 0;
+  }
+}
+
+#navbar-header, #navbar {
+  padding-top: 2em;
+}
+
+#navbar-header.no-theme-mod, #navbar.no-theme-mod {
+  padding-top: 0;
+}
+
+#navbar {
+  height: 84px !important;
+}
+
+#navbar.no-theme-mod {
+  height: 63px !important;
+}
+
+#navbar-header {
+  &.small {
+    .logo {
+      top: 33px !important;
+    }
+  }
+}
+
+#navbar-header.no-theme-mod {
+  &.small {
+    .logo {
+      top: 5px !important;
+    }
+  }
+}
+
+.no-padding-container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.logged-in .sticky-top.no-theme-mod {
+  top: 32px !important;
+}

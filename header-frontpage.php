@@ -23,14 +23,14 @@
 
 <!-- Header -->
 <header id="masthead" class="site-header">
-  <div class="container-fluid header-carousel">
+  <!--<div class="container-fluid header-carousel">
     <div id="carouselExampleIndicators"
          class="container carousel slide"
          data-bs-ride="carousel">
       <div class="carousel-inner" style="height: 100%;">
 	      <?php
 	      // Include file to define $carousel_items and $carousel_links
-	      include_once( get_template_directory() . '/customizer/carousel-items-links.php' );
+	    /*  include_once( get_template_directory() . '/customizer/carousel-items-links.php' );
 	      
 	      // Check if $carousel_items and $carousel_links are arrays
 	      if ( !empty( $carousel_items ) && is_array( $carousel_items ) && !empty( $carousel_links ) && is_array( $carousel_links ) ) {
@@ -48,16 +48,45 @@
 			      }
 		      }
 	      }
-	      ?>
+	    */  ?>
       </div>
     </div>
-  </div>
+  </div> -->
   
 </header>
 <div class="site-content">
 <?php if ( !empty(get_theme_mod( 'skulls_carousel_item_1'))) { ?>
-<div id="navbar-header" class="navbar-logo container-fluid navigation d-flex justify-content-between align-items-center
+<div id="navbar-header" class="navbar-logo container-fluid no-padding-container navigation d-flex justify-content-between align-items-center
 sticky-top">
+    <div class="container-fluid no-padding-container header-carousel">
+        <div id="carouselExampleIndicators"
+             class="container carousel slide"
+             data-bs-ride="carousel">
+            <div class="carousel-inner" style="height: 100%;">
+				<?php
+				// Include file to define $carousel_items and $carousel_links
+				include_once( get_template_directory() . '/customizer/carousel-items-links.php' );
+				
+				// Check if $carousel_items and $carousel_links are arrays
+				if ( !empty( $carousel_items ) && is_array( $carousel_items ) && !empty( $carousel_links ) && is_array( $carousel_links ) ) {
+					foreach ( $carousel_items as $key => $value ) {
+						if ( ! empty( $value ) ) {
+							// Add 'active' class to the first carousel item
+							$active_class = ( $key === 0 ) ? ' active' : '';
+							?>
+                            <div class="carousel-item<?php echo esc_attr( $active_class ); ?>">
+                                <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>">
+                                    <span class="header-carousel-text"><?php echo esc_html( $value ); ?></span>
+                                </a>
+                            </div>
+							<?php
+						}
+					}
+				}
+				?>
+            </div>
+        </div>
+    </div>
     <?php } else { ?>
     <div id="navbar-header" class="navbar-logo container-fluid navigation d-flex justify-content-between
     align-items-center
