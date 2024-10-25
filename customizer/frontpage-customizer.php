@@ -37,8 +37,7 @@ function skulls_customize_register( $wp_customize ) {
 	 * Carousel Section
 	 * The carousel renders at the top of the header. A rotation CTA.
 	 */
-	
-	// Custom Control Class for rendering title and descriptions for the Carousel
+
 	if ( class_exists( 'WP_Customize_Control' ) ) {
 		class Skulls_Custom_Title_Link_Control extends WP_Customize_Control {
 			public $type = 'custom_title';  // Control type
@@ -66,8 +65,7 @@ function skulls_customize_register( $wp_customize ) {
 			}
 		}
 	}
-	
-	// Add Section for Header Carousel
+
 	$wp_customize->add_section( 'skulls_carousel_section', array(
 		'title'       => __( 'Header Carousel', 'skullstheme' ),
 		'description' => __( 'This section allows you to add items and links to the header rotating carousel. The column below is split between item names and links. In the Carousel Item Name add the product name and/or short call to action. In the Carousel Item Link column that follows, add the associated link or URL.',	'skullstheme' ),
@@ -88,8 +86,7 @@ function skulls_customize_register( $wp_customize ) {
 			'settings' => 'skulls_carousel_item_title',
 		)
 	) );
-	
-	// Add settings and controls item
+
 	for ( $i = 1; $i <= 4; $i++ ) {
 		$wp_customize->add_setting( "skulls_carousel_item_$i", array(
 			'default'           => '',
@@ -109,8 +106,7 @@ function skulls_customize_register( $wp_customize ) {
 			)
 		);
 	}
-	
-	// Add the custom link title control
+
 	$wp_customize->add_setting( 'skulls_carousel_link', array(
 		'sanitize_callback' => 'sanitize_text_field',
 	) );
@@ -125,8 +121,7 @@ function skulls_customize_register( $wp_customize ) {
 			'settings' => 'skulls_carousel_link',
 		)
 	) );
-	
-	// Add settings and controls for each category link
+
 	for ( $i = 1; $i <= 4; $i++ ) {
 		$wp_customize->add_setting( "skulls_carousel_link_$i", array(
 			'default'           => '',
@@ -147,19 +142,16 @@ function skulls_customize_register( $wp_customize ) {
 		);
 	}
 
-  // Add a new section for WooCommerce settings
   $wp_customize->add_section('woocommerce_settings', array(
     'title'    => __('WooCommerce Category', 'skullstheme'),
     'priority' => 120,
   ));
 
-  // Add setting to choose a WooCommerce category
   $wp_customize->add_setting('selected_woocommerce_category', array(
     'default'           => '',
     'sanitize_callback' => 'sanitize_text_field',
   ));
 
-  // Add a control to choose a WooCommerce category
   $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'selected_woocommerce_category', array(
     'label'    => __('Select WooCommerce Category', 'mytheme'),
     'section'  => 'woocommerce_settings',
@@ -167,8 +159,96 @@ function skulls_customize_register( $wp_customize ) {
     'type'     => 'select',
     'choices'  => mytheme_get_woocommerce_categories(),
   )));
-}
 
+  $wp_customize->add_section('front_page_cta', array(
+    'title'    => __('Front Page CTA', 'skullstheme'),
+    'priority' => 120,
+  ));
+
+  $wp_customize->add_setting('fp_call_to_action', array(
+    'default'           => 'Unleash Your Inner Skull',
+    'sanitize_callback' => 'sanitize_text_field',
+    'transport'         => 'postMessage',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'fp_call_to_action', array(
+    'label'    => __('Call To Action', 'mytheme'),
+    'section'  => 'front_page_cta',
+    'settings' => 'fp_call_to_action',
+    'type'     => 'text',
+  )));
+
+  if ( isset( $wp_customize->selective_refresh ) ) {
+    $wp_customize->selective_refresh->add_partial('fp_call_to_action',
+      array('selector' => '.fp_call_to_action', 'render_callback' => function () {
+        return get_theme_mod('fp_call_to_action', 'Get ready to embrace skull-inspired fashion, accessories, and decor!');
+      },));
+  }
+
+  $wp_customize->add_setting('fp_call_to_action_desc', array(
+    'default'           => 'Get ready to embrace skull-inspired fashion, accessories, and decor!',
+    'sanitize_callback' => 'sanitize_text_field',
+    'transport'         => 'postMessage',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'fp_call_to_action_desc', array(
+    'label'    => __('Call To Action Description', 'mytheme'),
+    'section'  => 'front_page_cta',
+    'settings' => 'fp_call_to_action_desc',
+    'type'     => 'text',
+  )));
+
+  if ( isset( $wp_customize->selective_refresh ) ) {
+    $wp_customize->selective_refresh->add_partial('fp_call_to_action_desc', array('selector' => '.fp_call_to_action_desc', // CSS selector of the element to refresh
+      'render_callback' => function () {
+        return get_theme_mod('fp_call_to_action_desc', 'Get ready to embrace skull-inspired fashion, accessories, and decor!');
+      },));
+  }
+
+  $wp_customize->add_setting('fp_cta_button', array(
+    'default'           => 'Shop the Collection',
+    'sanitize_callback' => 'sanitize_text_field',
+    'transport'         => 'postMessage',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'fp_cta_button', array(
+    'label'    => __('Button Label', 'mytheme'),
+    'section'  => 'front_page_cta',
+    'settings' => 'fp_cta_button',
+    'type'     => 'text',
+  )));
+
+  if ( isset( $wp_customize->selective_refresh ) ) {
+    $wp_customize->selective_refresh->add_partial('fp_cta_button', array(
+      'selector' => '.fp_cta_button', // CSS selector of the element to refresh
+      'render_callback' => function() {
+        return get_theme_mod('fp_cta_button', 'Shop the Collection');
+      },
+    ));
+  }
+
+  $wp_customize->add_setting('fp_cta_button_link', array(
+    'default'           => '/shop',
+    'sanitize_callback' => 'esc_url_raw',
+    'transport'         => 'postMessage',
+  ));
+
+  $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'fp_cta_button_link', array(
+    'label'    => __('Button Link', 'mytheme'),
+    'section'  => 'front_page_cta',
+    'settings' => 'fp_cta_button_link',
+    'type'     => 'url',
+  )));
+
+  if ( isset( $wp_customize->selective_refresh ) ) {
+    $wp_customize->selective_refresh->add_partial('fp_cta_button_link', array(
+      'selector' => '.fp-cta-button-link', // CSS selector of the element to refresh
+      'render_callback' => function() {
+        return get_theme_mod('fp_cta_button_link', '/shop');
+      },
+    ));
+  }
+}
 add_action( 'customize_register', 'skulls_customize_register' );
 
 // Helper function to get WooCommerce categories
