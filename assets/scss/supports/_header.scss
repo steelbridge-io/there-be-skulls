@@ -16,8 +16,14 @@
     display: flex;
     align-items: center;
     .cart-contents {
-      color: $white;
+      color: $nav-color
     }
+  }
+  &.nav-search,
+  &.search-option {
+    display: flex;
+    align-items: center;
+    color: $nav-color !important;
   }
 }
   .dropdown-submenu {
@@ -186,8 +192,8 @@
     transition: background-color 0.25s;
     .navbar {
       li {
-        margin-left: 1em;
-        margin-right: 1em;
+        margin-left: .5em;
+        margin-right: .5em;
         a {
           font-size: 1rem;
         }
