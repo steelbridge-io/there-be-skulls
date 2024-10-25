@@ -164,10 +164,26 @@ include get_template_directory() . '/customizer/category-slugs.php';
   </section>
 
   <!-- Call to Action -->
+
   <section class="bg-danger text-white py-5 text-center">
-    <h4 class="display-6 fw-bold mb-3">Unleash Your Inner Skull</h4>
-    <p class="lead mb-4">Get ready to embrace skull-inspired fashion, accessories, and decor!</p>
-    <a href="/shop" class="btn btn-dark btn-lg">Shop the Collection</a>
+    <h4 class="display-6 fw-bold mb-3 fp_call_to_action">
+      <?php
+      $fp_call_to_action = get_theme_mod('fp_call_to_action', 'Unleash Your Inner Skull');
+      echo !empty($fp_call_to_action) ? $fp_call_to_action : 'Unleash Your Inner Skull';
+      ?>
+    </h4>
+    <p class="lead mb-4 fp_call_to_action_desc">
+      <?php
+      $fp_call_to_action_desc = get_theme_mod('fp_call_to_action_desc', 'Get ready to embrace skull-inspired fashion, accessories, and decor!');
+      echo !empty($fp_call_to_action_desc) ? $fp_call_to_action_desc : 'Get ready to embrace skull-inspired fashion, accessories, and decor!';
+      ?>
+    </p>
+    <?php
+    $fp_call_to_action_button = get_theme_mod('fp_cta_button', 'Shop the Collection');
+    $fp_call_to_action_link = get_theme_mod('fp_cta_button_link', '/shop');
+    ?>
+    <a href="<?php echo !empty($fp_call_to_action_link) ? $fp_call_to_action_link : '/shop'; ?>" class="fp-cta-button-link btn btn-dark btn-lg"><span class="fp_cta_button"><?php echo !empty($fp_call_to_action_button) ? $fp_call_to_action_button : 'Shop the Collection'; ?></span></a>
   </section>
+
 
 <?php get_footer(); ?>
