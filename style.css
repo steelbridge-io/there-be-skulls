@@ -110,7 +110,11 @@ h1.trade-winds-regular.nav-title {
   display: flex;
   align-items: center; }
   .menu-item.cart-menu .cart-contents {
-    color: #ffffff; }
+    color: rgba(255, 255, 255, 0.55); }
+.menu-item.nav-search, .menu-item.search-option {
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.55) !important; }
 
 .dropdown-submenu {
   position: relative; }
@@ -239,8 +243,8 @@ Navigation - menu
   background-color: #595958;
   transition: background-color 0.25s; }
   .navigation .navbar li {
-    margin-left: 1em;
-    margin-right: 1em; }
+    margin-left: .5em;
+    margin-right: .5em; }
     .navigation .navbar li a {
       font-size: 1rem; }
 
@@ -446,6 +450,16 @@ a.added_to_cart.wc-forward {
 
 .product-name a {
   color: #595958; }
+
+.woocommerce-product-gallery ol.flex-control-nav.flex-control-thumbs {
+  margin-top: 1em !important; }
+  .woocommerce-product-gallery ol.flex-control-nav.flex-control-thumbs li:nth-child(n+2) {
+    margin-left: .5em !important; }
+.woocommerce-product-gallery .flex-viewport {
+  margin-bottom: 1em; }
+
+div.product .stock {
+  color: #0D0D0D !important; }
 
 /** 404 */
 /* Custom styles for the 404 error page */
