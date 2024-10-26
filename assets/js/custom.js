@@ -54,7 +54,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.getElementById('navbar-header');
     const overlay = document.querySelector('.overlay');
-    const title = document.getElementById('title-front-page'); // New element
+    const title = document.getElementById('title-front-page');
+    const intro = document.getElementById('intro-title');
     let logoTransitioned = false;
 
     // Helper functions to manage cookies
@@ -93,6 +94,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    if (!intro) {
+        console.error('Intro element not found!');
+        return;
+    }
+
     // Only run on the home page
     const isHomePage = document.body.classList.contains('home');
     if (!isHomePage) {
@@ -110,7 +116,8 @@ document.addEventListener('DOMContentLoaded', function () {
         // Temporarily disable transitions
         navbar.classList.add('no-transition');
         navbar.classList.add('small');
-        title.classList.add('fade-in'); // Fade in title immediately
+        title.classList.add('fade-in');
+        intro.classList.add('fade-in');
         navbar.offsetHeight; // Trigger reflow for the class to take effect
         navbar.classList.remove('no-transition');
 
@@ -145,7 +152,8 @@ document.addEventListener('DOMContentLoaded', function () {
             overlay.classList.add('fade-out'); // Add class to fade out the overlay
 
             setTimeout(() => {
-                title.classList.add('fade-in'); // Fade in title after a delay
+                title.classList.add('fade-in');
+                intro.classList.add('fade-in');
             }, 500); // Adjust the delay as needed (500 ms in this case)
 
             logoTransitioned = true; // Prevent further transitions
