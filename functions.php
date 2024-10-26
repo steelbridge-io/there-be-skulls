@@ -21,7 +21,7 @@ add_action('after_setup_theme', 'your_theme_setup');
 require get_template_directory() . '/customizer/general-customizer.php';
 require get_template_directory() . '/customizer/frontpage-customizer.php';
 require get_template_directory() . '/inc/custom-login.php';
-// Register footer widgets
+require get_template_directory() . '/inc/woocommerce-mods.php';
 require get_template_directory() . '/inc/footer-widgets.php';
 
 if (!function_exists('there_be_skulls_enqueue_styles')) {
