@@ -1,51 +1,75 @@
 /** Navigation */
 
-    document.addEventListener('DOMContentLoaded', function() {
-    var dropdowns = document.querySelectorAll('li.dropdown');
-    dropdowns.forEach(function(dropdown) {
-    dropdown.addEventListener('mouseenter', function() {
-    var dropdownMenu = this.querySelector('.dropdown-menu');
-    if (dropdownMenu) {
-    dropdownMenu.classList.add('show');
-}
-});
-    dropdown.addEventListener('mouseleave', function() {
-    var dropdownMenu = this.querySelector('.dropdown-menu');
-    if (dropdownMenu) {
-    dropdownMenu.classList.remove('show');
+/*** Front Page Animation **/
+
+    document.addEventListener('DOMContentLoaded', function () {
+    let animatedGraphic = document.getElementById('animated-graphic');
+    let animated = false;
+    let timer;
+
+    window.addEventListener('scroll', function () {
+    if (window.scrollY >= 400 && !animated) {
+    // Trigger slide-in animation after scrolling 400px
+    animatedGraphic.classList.add('slide-in');
+    animated = true;
+
+    // Slide back out after 3 seconds
+    timer = setTimeout(function () {
+    animatedGraphic.classList.replace('slide-in', 'slide-out');
+    animated = false; // Allow animation to trigger again if needed
+}, 7000); // 5 seconds delay
 }
 });
 });
 
+/*** /Front Page Animation **/
+
+document.addEventListener('DOMContentLoaded', function () {
+    var dropdowns = document.querySelectorAll('li.dropdown');
+    dropdowns.forEach(function (dropdown) {
+        dropdown.addEventListener('mouseenter', function () {
+            var dropdownMenu = this.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.add('show');
+            }
+        });
+        dropdown.addEventListener('mouseleave', function () {
+            var dropdownMenu = this.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    });
+
     var submenus = document.querySelectorAll('li.dropdown-submenu');
-    submenus.forEach(function(submenu) {
-    submenu.addEventListener('mouseenter', function() {
-    var dropdownMenu = this.querySelector('.dropdown-menu');
-    if (dropdownMenu) {
-    dropdownMenu.classList.add('show');
-}
-});
-    submenu.addEventListener('mouseleave', function() {
-    var dropdownMenu = this.querySelector('.dropdown-menu');
-    if (dropdownMenu) {
-    dropdownMenu.classList.remove('show');
-}
-});
-});
+    submenus.forEach(function (submenu) {
+        submenu.addEventListener('mouseenter', function () {
+            var dropdownMenu = this.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.add('show');
+            }
+        });
+        submenu.addEventListener('mouseleave', function () {
+            var dropdownMenu = this.querySelector('.dropdown-menu');
+            if (dropdownMenu) {
+                dropdownMenu.classList.remove('show');
+            }
+        });
+    });
 
     // Ensure links remain clickable
     var links = document.querySelectorAll('.nav-link, .dropdown-item');
-    links.forEach(function(link) {
-    link.addEventListener('click', function(event) {
-    if (this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown-menu')) {
-    event.preventDefault();
-    event.stopPropagation(); // Prevent default behavior and propagation
+    links.forEach(function (link) {
+        link.addEventListener('click', function (event) {
+            if (this.nextElementSibling && this.nextElementSibling.classList.contains('dropdown-menu')) {
+                event.preventDefault();
+                event.stopPropagation(); // Prevent default behavior and propagation
 
-    // Manually navigate to the link if it is clicked
-    window.location.href = this.getAttribute('href');
-}
-});
-});
+                // Manually navigate to the link if it is clicked
+                window.location.href = this.getAttribute('href');
+            }
+        });
+    });
 });
 
 /** /navigation */
@@ -208,7 +232,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
     function updateCartCount() {
         // Gets the text from cart fragments update
         var count = $('.cart-contents .cart-count').text();
@@ -217,7 +241,7 @@ jQuery(document).ready(function($) {
     }
 
     // Binds to WooCommerce add or remove from cart events
-    $(document.body).on('added_to_cart removed_from_cart', function() {
+    $(document.body).on('added_to_cart removed_from_cart', function () {
         updateCartCount();
     });
 
