@@ -77,6 +77,15 @@
     opacity: 1; /* Visible after fade-in */
   }
 
+  #intro-title {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  #intro-title.fade-in {
+    opacity: 1; /* Visible after fade-in */
+  }
+
   // Hamburger icon alignment
   .navbar-toggler {
     right: 15px;
