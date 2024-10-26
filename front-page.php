@@ -20,10 +20,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 include get_template_directory() . '/customizer/category-slugs.php';
-
 ?>
 
 <h1 id="title-front-page" class="trade-winds-regular text-align-center">THERE BE SKULLS</h1>
+<p id="intro-title" class="intro-lead lead text-align-center">Skull-inspired fashion, accessories, and decor!</p>
 
   <section class="py-5">
     <div class="container category-container">
@@ -61,53 +61,58 @@ include get_template_directory() . '/customizer/category-slugs.php';
   </section>
 
   <!-- Featured Products -->
+<?php
+$args = array(
+  'post_type' => 'product',
+  'posts_per_page' => 24,
+  'order' => 'DESC',
+  'orderby' => 'date',
+  'tax_query' => array(
+    array(
+      'taxonomy' => 'product_visibility',
+      'field' => 'name',
+      'terms' => 'featured',
+      'operator' => 'IN'
+    )
+  ),
+);
+
+$loop = new WP_Query($args);
+if ($loop->have_posts()) :
+  ?>
   <section class="py-5">
     <div class="container">
       <h3 class="display-5 fw-bold text-center mb-5 text-uppercase">Featured</h3>
       <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-4 g-4 justify-content-center">
         <?php
-        $args = array(
-          'post_type' => 'product',
-          'posts_per_page' => 24,
-          'order' => 'DESC',
-          'orderby' => 'date',
-          'tax_query' => array(
-            array(
-              'taxonomy' => 'product_visibility',
-              'field' => 'name',
-              'terms' => 'featured',
-              'operator' => 'IN'
-            )
-          ),
-        );
-
-        $loop = new WP_Query($args);
-        if ($loop->have_posts()) :
-          while ($loop->have_posts()) :
-            $loop->the_post();
-            global $product; ?>
-            <div class="col">
-              <div class="card bg-dark text-light border-secondary h-100">
-                <?php if (has_post_thumbnail()) : ?>
+        while ($loop->have_posts()) :
+          $loop->the_post();
+          global $product; ?>
+          <div class="col">
+            <div class="card bg-dark text-light border-secondary h-100">
+              <?php if (has_post_thumbnail()) : ?>
                 <a href="<?php the_permalink(); ?>">
                   <img src="<?php echo get_the_post_thumbnail_url($loop->post->ID, 'large'); ?>" alt="<?php the_title(); ?>" class="card-img-top">
                 </a>
-                <?php endif; ?>
-                <div class="card-body">
-                  <h4 class="card-title text-danger"><?php the_title(); ?></h4>
-                  <p class="card-text"><?php echo $product->get_price_html(); ?></p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-danger w-100">View Product</a>
-                </div>
+              <?php endif; ?>
+              <div class="card-body">
+                <h4 class="card-title text-danger"><?php the_title(); ?></h4>
+                <p class="card-text"><?php echo $product->get_price_html(); ?></p>
+                <a href="<?php the_permalink(); ?>" class="btn btn-danger w-100">View Product</a>
               </div>
             </div>
-          <?php endwhile;
-        else : ?>
-          <p class="text-center">No featured products found.</p>
-        <?php endif;
-        wp_reset_postdata(); ?>
+          </div>
+        <?php endwhile; ?>
       </div>
     </div>
   </section>
+<?php
+else :
+  // Optionally, you can add a message or do nothing.
+  echo '<p class="text-center">No featured products found.</p>';
+endif;
+wp_reset_postdata();
+?>
 
   <!-- Featured Category -->
   <section class="py-5">
