@@ -1,3 +1,34 @@
+
+
+.animated-graphic {
+  width: 600px; /* Adjust as necessary */
+  height: auto; /* Adjust as necessary */
+  position: fixed; /* Fixed positioning ensures it's sticky */
+  top: 150px; /* Adjust the vertical position as needed */
+  left: -650px; /* Start hidden, outside the viewport */
+  transition: left 1s; /* Smooth slide-in transition */
+  z-index: 1000; /* Ensure the graphic is above other content */
+}
+
+.animated-graphic img {
+  width: 100%; /* Ensure the image fits within the container */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.slide-in {
+  left: -100px; /* Adjust position after sliding in */
+}
+
+.slide-out {
+  left: -650px; /* Slide back out to hide */
+}
+
+
+
+
+
+
+
 .container-fluid {
   &.header-carousel {
     --bs-gutter-x: 0 !important;
