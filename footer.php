@@ -1,5 +1,5 @@
 <footer class="bg-black py-4 text-center">
-  <div class="container">
+  <div class="container bg-black">
     <div id="footer-row" class="row">
       <!-- Footer Column 1 -->
       <div class="col-md-4">
