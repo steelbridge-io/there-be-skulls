@@ -1,0 +1,41 @@
+
+
+.single {
+  .single-container {
+    background-color: $white_background;
+    padding: 3.618em 0;
+  }
+}
+
+#comment {
+  width: 100%;
+}
+
+#submit,
+input[type="submit"] {
+  background-color: $button-danger;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Add a hover effect */
+#submit:hover,
+input[type="submit"]:hover {
+  background-color:$button-danger-hover;
+}
+
+/* Add a focus effect */
+#submit:focus,
+input[type="submit"]:focus {
+  outline: none;
+  background-color: $button-danger-hover;
+}
+
+
