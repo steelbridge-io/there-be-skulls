@@ -190,5 +190,9 @@ wp_reset_postdata();
     <a href="<?php echo !empty($fp_call_to_action_link) ? $fp_call_to_action_link : '/shop'; ?>" class="fp-cta-button-link btn btn-dark btn-lg"><span class="fp_cta_button"><?php echo !empty($fp_call_to_action_button) ? $fp_call_to_action_button : 'Shop the Collection'; ?></span></a>
   </section>
 
+  <div id="animated-graphic" class="animated-graphic">
+    <img src="https://nyc3.digitaloceanspaces.com/parsonscloud.storage/the-dark-side-network/sites/13/2024/10/26224746/promo-slide-in.png" alt="Animated Graphic">
+  </div>
+
 
 <?php get_footer(); ?>
