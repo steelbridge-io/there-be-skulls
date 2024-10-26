@@ -26,6 +26,10 @@ h1.trade-winds-regular {
   font-size: 6vw;  // Use viewport width units for responsiveness
 }
 
+.intro-lead {
+  color: $white;
+}
+
 @media (max-width: 599px) {
   h1.trade-winds-regular {
     font-size: 2rem;  // Below 600px, reduce the font size
