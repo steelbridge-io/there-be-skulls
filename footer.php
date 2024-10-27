@@ -2,21 +2,21 @@
   <div class="container bg-black">
     <div id="footer-row" class="row">
       <!-- Footer Column 1 -->
-      <div class="col-md-4">
+      <div class="col-lg-4">
         <?php if (is_active_sidebar('footer-1')) : ?>
           <?php dynamic_sidebar('footer-1'); ?>
         <?php endif; ?>
       </div>
 
       <!-- Footer Column 2 -->
-      <div class="col-md-4">
+      <div class="col-lg-4">
         <?php if (is_active_sidebar('footer-2')) : ?>
           <?php dynamic_sidebar('footer-2'); ?>
         <?php endif; ?>
       </div>
 
       <!-- Footer Column 3 -->
-      <div class="col-md-4">
+      <div class="col-lg-4">
         <?php if (is_active_sidebar('footer-3')) : ?>
           <?php dynamic_sidebar('footer-3'); ?>
         <?php endif; ?>
