@@ -1,0 +1,49 @@
+/** Search */
+
+.search-wrapper {
+  background-color: $white_background;
+  padding: 3.618em 0;
+  margin-bottom: 5em;
+}
+
+.page-numbers.current {
+  background: $masthead;
+  padding: 1em;
+  color: $white;
+  border: 1px solid #ccc;
+}
+
+.page-numbers {
+  background: $font_dark;
+  padding: 1em;
+  color: $white;
+  border: 1px solid #ccc;
+}
+
+.next.page-numbers {
+  background: $font_dark;
+  padding: 1em;
+  color: $white;
+  border: 1px solid #ccc;
+}
+
+.pagination {
+  margin-top: 1.618em;
+  .navigation.pagination {
+    background-color: transparent;
+    .nav-links {
+      display: flex;
+    }
+  }
+}
+
+.post-preview {
+  a.btn.btn-primary {
+    background-color: $button-danger !important;
+    border-color: $button-danger !important;
+  }
+  a.btn.btn-primary:hover {
+    background-color: $button-danger-hover !important;
+    border-color: $button-danger-hover !important;
+  }
+}
