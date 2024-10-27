@@ -44,11 +44,11 @@ align-items-center navigation sticky-top">
 							// Add 'active' class to the first carousel item
 							$active_class = ( $key === 0 ) ? ' active' : '';
 							?>
-                            <div class="carousel-item<?php echo esc_attr( $active_class ); ?>">
-                                <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>">
-                                    <span class="header-carousel-text"><?php echo esc_html( $value ); ?></span>
-                                </a>
-                            </div>
+                <div class="carousel-item<?php echo esc_attr( $active_class ); ?>" id="carousel_item_wrapper_<?php echo esc_attr($key + 1); ?>">
+                    <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>" id="skulls_carousel_link_<?php echo esc_attr($key + 1); ?>">
+                        <span class="header-carousel-text" id="skulls_carousel_item_<?php echo esc_attr($key + 1); ?>"><?php echo esc_html( $value ); ?></span>
+                    </a>
+                </div>
 							<?php
 						}
 					}
@@ -64,9 +64,9 @@ align-items-center navigation sticky-top">
           <?php
           $custom_logo_id = get_theme_mod('custom_logo');
           if ($custom_logo_id) {
-            echo '<img class="logo" src="' . esc_url($custom_logo_id) . '" alt="' . get_bloginfo('name') . '">';
+            echo '<a href="/" title="Home"><img class="logo" src="' . esc_url($custom_logo_id) . '" alt="' . get_bloginfo('name') . '"></a>';
           } else {
-            echo '<h1 class="nav-title trade-winds-regular text-align-center logo">' . get_bloginfo('name') . '</h1>';
+            echo '<h1 class="nav-title trade-winds-regular text-align-center logo"><a href="/" title="Home">' . get_bloginfo('name') . '</a></h1>';
           }
           ?>
         <nav class="navbar navbar-expand-xl navbar-dark">
