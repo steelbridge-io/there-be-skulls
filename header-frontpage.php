@@ -22,38 +22,7 @@
 <div class="site-wrapper">
 
 <!-- Header -->
-<header id="masthead" class="site-header">
-  <!--<div class="container-fluid header-carousel">
-    <div id="carouselExampleIndicators"
-         class="container carousel slide"
-         data-bs-ride="carousel">
-      <div class="carousel-inner" style="height: 100%;">
-	      <?php
-	      // Include file to define $carousel_items and $carousel_links
-	    /*  include_once( get_template_directory() . '/customizer/carousel-items-links.php' );
-	      
-	      // Check if $carousel_items and $carousel_links are arrays
-	      if ( !empty( $carousel_items ) && is_array( $carousel_items ) && !empty( $carousel_links ) && is_array( $carousel_links ) ) {
-		      foreach ( $carousel_items as $key => $value ) {
-			      if ( ! empty( $value ) ) {
-				      // Add 'active' class to the first carousel item
-				      $active_class = ( $key === 0 ) ? ' active' : '';
-				      ?>
-                <div class="carousel-item<?php echo esc_attr( $active_class ); ?>">
-                    <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>">
-                        <span class="header-carousel-text"><?php echo esc_html( $value ); ?></span>
-                    </a>
-                </div>
-				      <?php
-			      }
-		      }
-	      }
-	    */  ?>
-      </div>
-    </div>
-  </div> -->
-  
-</header>
+<header id="masthead" class="site-header"></header>
 <div class="site-content">
 <?php if ( !empty(get_theme_mod( 'skulls_carousel_item_1'))) { ?>
 <div id="navbar-header" class="navbar-logo container-fluid no-padding-container navigation d-flex justify-content-between align-items-center
@@ -66,7 +35,7 @@ sticky-top">
 				<?php
 				// Include file to define $carousel_items and $carousel_links
 				include_once( get_template_directory() . '/customizer/carousel-items-links.php' );
-				
+
 				// Check if $carousel_items and $carousel_links are arrays
 				if ( !empty( $carousel_items ) && is_array( $carousel_items ) && !empty( $carousel_links ) && is_array( $carousel_links ) ) {
 					foreach ( $carousel_items as $key => $value ) {
@@ -74,11 +43,11 @@ sticky-top">
 							// Add 'active' class to the first carousel item
 							$active_class = ( $key === 0 ) ? ' active' : '';
 							?>
-                            <div class="carousel-item<?php echo esc_attr( $active_class ); ?>">
-                                <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>">
-                                    <span class="header-carousel-text"><?php echo esc_html( $value ); ?></span>
-                                </a>
-                            </div>
+                <div class="carousel-item<?php echo esc_attr( $active_class ); ?>" id="carousel_item_wrapper_<?php echo esc_attr($key + 1); ?>">
+                    <a href="<?php echo esc_url( $carousel_links[ $key ] ); ?>" id="skulls_carousel_link_<?php echo esc_attr($key + 1); ?>">
+                        <span class="header-carousel-text" id="skulls_carousel_item_<?php echo esc_attr($key + 1); ?>"><?php echo esc_html( $value ); ?></span>
+                    </a>
+                </div>
 							<?php
 						}
 					}
@@ -96,9 +65,9 @@ sticky-top">
       <?php
       $custom_logo_id = get_theme_mod('custom_logo');
       if ($custom_logo_id) {
-        echo '<img class="logo" src="' . esc_url($custom_logo_id) . '" alt="' . get_bloginfo('name') . '">';
+        echo '<a href="/" title="Home"><img class="logo" src="' . esc_url($custom_logo_id) . '" alt="' . get_bloginfo('name') . '"></a>';
       } else {
-        echo '<h1 class="nav-title trade-winds-regular text-align-center logo">' . get_bloginfo('name') . '</h1>';
+        echo '<h1 class="nav-title trade-winds-regular text-align-center logo"><a href="/" title="Home">' . get_bloginfo('name') . '</a></h1>';
       }
       ?>
     <nav class="navbar navbar-expand-xl navbar-dark">
