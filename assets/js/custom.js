@@ -1,29 +1,5 @@
 /** Navigation */
 
-/*** Front Page Animation **/
-
-    document.addEventListener('DOMContentLoaded', function () {
-    let animatedGraphic = document.getElementById('animated-graphic');
-    let animated = false;
-    let timer;
-
-    window.addEventListener('scroll', function () {
-    if (window.scrollY >= 400 && !animated) {
-    // Trigger slide-in animation after scrolling 400px
-    animatedGraphic.classList.add('slide-in');
-    animated = true;
-
-    // Slide back out after 3 seconds
-    timer = setTimeout(function () {
-    animatedGraphic.classList.replace('slide-in', 'slide-out');
-    animated = false; // Allow animation to trigger again if needed
-}, 7000); // 5 seconds delay
-}
-});
-});
-
-/*** /Front Page Animation **/
-
 document.addEventListener('DOMContentLoaded', function () {
     var dropdowns = document.querySelectorAll('li.dropdown');
     dropdowns.forEach(function (dropdown) {
