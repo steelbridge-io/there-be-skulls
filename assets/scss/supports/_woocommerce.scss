@@ -1,5 +1,8 @@
 /** WooCommerce */
 
+.orderby {
+  padding: .5em .2em;
+}
 .woocommerce-notices-wrapper {
   .woocommerce-message {
     border-top-color: $button-danger;
@@ -210,7 +213,7 @@
   background-color: $dark;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 .custom-pagination .page-item .current {
@@ -220,7 +223,7 @@
   background-color: $masthead;
   text-decoration: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 0;
 }
 
 .custom-pagination .page-item a:hover,
