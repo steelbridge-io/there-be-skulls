@@ -23,6 +23,12 @@
   left: -650px; /* Slide back out to hide */
 }
 
+@media (max-width: 500px) {
+  .slide-in {
+    left: -200px;
+  }
+}
+
 
 
 
