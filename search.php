@@ -10,7 +10,7 @@
 get_header();
 ?>
 	
-	<div class="container mt-5">
+	<div class="container search-wrapper">
 		<div class="row">
 			<div class="col-lg-8 col-md-10 mx-auto">
 				<?php if ( have_posts() ) : ?>
