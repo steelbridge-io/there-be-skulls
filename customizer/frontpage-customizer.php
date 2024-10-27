@@ -37,110 +37,130 @@ function skulls_customize_register( $wp_customize ) {
 	 * Carousel Section
 	 * The carousel renders at the top of the header. A rotation CTA.
 	 */
+  function sanitize_text_length($input) {
+    if (strlen($input) > 40) {
+      $input = substr($input, 0, 40);
+    }
+    return sanitize_text_field($input);
+  }
 
-	if ( class_exists( 'WP_Customize_Control' ) ) {
-		class Skulls_Custom_Title_Link_Control extends WP_Customize_Control {
-			public $type = 'custom_title';  // Control type
-			
-			public function render_content() {
-				if ( ! empty( $this->label ) ) {
-					echo '<div class="skulls-custom-title-control">';
-					echo '<h2>' . esc_html( $this->label ) . '</h2>';
-					echo '<p>' . esc_html( $this->description ) . '</p>';
-					echo '</div>';
-				}
-			}
-		}
-		
-		class Skulls_Custom_Item_Title_Control extends WP_Customize_Control {
-			public $type = 'custom_title';  // Control type
-			
-			public function render_content() {
-				if ( ! empty( $this->label ) ) {
-					echo '<div class="skulls-custom-title-control">';
-					echo '<h2>' . esc_html( $this->label ) . '</h2>';
-					echo '<p>' . esc_html( $this->description ) . '</p>';
-					echo '</div>';
-				}
-			}
-		}
-	}
+  if (class_exists('WP_Customize_Control')) {
+    class Skulls_Custom_Title_Link_Control extends WP_Customize_Control {
+      public $type = 'custom_title';  // Control type
 
-	$wp_customize->add_section( 'skulls_carousel_section', array(
-		'title'       => __( 'Header Carousel', 'skullstheme' ),
-		'description' => __( 'This section allows you to add items and links to the header rotating carousel. The column below is split between item names and links. In the Carousel Item Name add the product name and/or short call to action. In the Carousel Item Link column that follows, add the associated link or URL.',	'skullstheme' ),
-		'priority'    => 120,
-	) );
-	
-	$wp_customize->add_setting( 'skulls_carousel_item_title', array(
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
-	
-	$wp_customize->add_control( new Skulls_Custom_Item_Title_Control(
-		$wp_customize,
-		'skulls_carousel_item_title',
-		array(
-			'label'    => __( 'Carousel Items', 'skullstheme' ),
-			'description' => __( 'Add the item name or call to action below.', 'skullstheme' ),
-			'section'  => 'skulls_carousel_section',
-			'settings' => 'skulls_carousel_item_title',
-		)
-	) );
+      public function render_content() {
+        if (!empty($this->label)) {
+          echo '<div class="skulls-custom-title-control">';
+          echo '<h2>' . esc_html($this->label) . '</h2>';
+          echo '<p>' . esc_html($this->description) . '</p>';
+          echo '</div>';
+        }
+      }
+    }
 
-	for ( $i = 1; $i <= 4; $i++ ) {
-		$wp_customize->add_setting( "skulls_carousel_item_$i", array(
-			'default'           => '',
-			'sanitize_callback' => 'sanitize_text_field',
-		) );
-		
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				"skulls_carousel_item_$i",
-				array(
-					'label'    => __( "Carousel Item $i Name", 'skullstheme' ),
-					'section'  => 'skulls_carousel_section',
-					'settings' => "skulls_carousel_item_$i",
-					'type'     => 'text',
-				)
-			)
-		);
-	}
+    class Skulls_Custom_Item_Title_Control extends WP_Customize_Control {
+      public $type = 'custom_title';  // Control type
 
-	$wp_customize->add_setting( 'skulls_carousel_link', array(
-		'sanitize_callback' => 'sanitize_text_field',
-	) );
-	
-	$wp_customize->add_control( new Skulls_Custom_Title_Link_Control(
-		$wp_customize,
-		'skulls_carousel_link',
-		array(
-			'label'    => __( 'Carousel Links', 'skullstheme' ),
-			'description' => __( 'Add links or URLs associated with the items previously listed. Make sure the Item link/URL matches the associated item name by number. Ex: Carousel Item 1 Link will be associated with Carousel Item 1 Name. ',	'skullstheme' ),
-			'section'  => 'skulls_carousel_section',
-			'settings' => 'skulls_carousel_link',
-		)
-	) );
+      public function render_content() {
+        if (!empty($this->label)) {
+          echo '<div class="skulls-custom-title-control">';
+          echo '<h2>' . esc_html($this->label) . '</h2>';
+          echo '<p>' . esc_html($this->description) . '</p>';
+          echo '</div>';
+        }
+      }
+    }
+  }
 
-	for ( $i = 1; $i <= 4; $i++ ) {
-		$wp_customize->add_setting( "skulls_carousel_link_$i", array(
-			'default'           => '',
-			'sanitize_callback' => 'esc_url_raw',
-		) );
-		
-		$wp_customize->add_control(
-			new WP_Customize_Control(
-				$wp_customize,
-				"skulls_carousel_link_$i",
-				array(
-					'label'    => __( "Carousel Item $i Link ", 'skullstheme' ),
-					'section'  => 'skulls_carousel_section',
-					'settings' => "skulls_carousel_link_$i",
-					'type'     => 'url',
-				)
-			)
-		);
-	}
+  $wp_customize->add_section('skulls_carousel_section', array(
+    'title'       => __('Header Carousel', 'skullstheme'),
+    'description' => __('This section allows you to add items and links to the header rotating carousel. The column below is split between item names and links. In the Carousel Item Name add the product name and/or short call to action. In the Carousel Item Link column that follows, add the associated link or URL.', 'skullstheme'),
+    'priority'    => 120,
+  ));
+
+  $wp_customize->add_setting('skulls_carousel_item_title', array(
+    'sanitize_callback' => 'sanitize_text_field',
+    'transport'         => 'postMessage',
+  ));
+
+  $wp_customize->add_control(new Skulls_Custom_Item_Title_Control(
+    $wp_customize,
+    'skulls_carousel_item_title',
+    array(
+      'label'       => __('Carousel Items', 'skullstheme'),
+      'description' => __('Add the item name or call to action below.', 'skullstheme'),
+      'section'     => 'skulls_carousel_section',
+      'settings'    => 'skulls_carousel_item_title',
+    )
+  ));
+
+  for ($i = 1; $i <= 4; $i++) {
+    $wp_customize->add_setting("skulls_carousel_item_$i", array(
+      'default'           => '',
+      'sanitize_callback' => 'sanitize_text_length',
+      'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Control(
+      $wp_customize,
+      "skulls_carousel_item_$i",
+      array(
+        'label'    => __("Carousel Item $i Name", 'skullstheme'),
+        'section'  => 'skulls_carousel_section',
+        'settings' => "skulls_carousel_item_$i",
+        'type'     => 'text',
+      )
+    ));
+
+    $wp_customize->selective_refresh->add_partial("skulls_carousel_item_$i", array(
+      'selector'        => "#skulls_carousel_item_$i", // Update with your actual selector
+      'render_callback' => function() use ($i) {
+        return get_theme_mod("skulls_carousel_item_$i");
+      }
+    ));
+  }
+
+  $wp_customize->add_setting('skulls_carousel_link', array(
+    'sanitize_callback' => 'sanitize_text_field',
+    'transport'         => 'postMessage',
+  ));
+
+  $wp_customize->add_control(new Skulls_Custom_Title_Link_Control(
+    $wp_customize,
+    'skulls_carousel_link',
+    array(
+      'label'       => __('Carousel Links', 'skullstheme'),
+      'description' => __('Add links or URLs associated with the items previously listed. Make sure the Item link/URL matches the associated item name by number. Ex: Carousel Item 1 Link will be associated with Carousel Item 1 Name.', 'skullstheme'),
+      'section'     => 'skulls_carousel_section',
+      'settings'    => 'skulls_carousel_link',
+    )
+  ));
+
+  for ($i = 1; $i <= 4; $i++) {
+    $wp_customize->add_setting("skulls_carousel_link_$i", array(
+      'default'           => '',
+      'sanitize_callback' => 'esc_url_raw',
+      'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Control(
+      $wp_customize,
+      "skulls_carousel_link_$i",
+      array(
+        'label'    => __("Carousel Item $i Link ", 'skullstheme'),
+        'section'  => 'skulls_carousel_section',
+        'settings' => "skulls_carousel_link_$i",
+        'type'     => 'url',
+      )
+    ));
+
+    $wp_customize->selective_refresh->add_partial("skulls_carousel_link_$i", array(
+      'selector'        => "#skulls_carousel_link_$i", // Update with your actual selector
+      'render_callback' => function() use ($i) {
+        return get_theme_mod("skulls_carousel_link_$i");
+      }
+    ));
+  }
 
   $wp_customize->add_section('woocommerce_settings', array(
     'title'    => __('WooCommerce Category', 'skullstheme'),
