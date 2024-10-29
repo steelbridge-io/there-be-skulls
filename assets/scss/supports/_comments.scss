@@ -1,0 +1,13 @@
+/** Comments */
+
+#commentform {
+  .form-submit {
+    input#submit {
+      background-color: $button-danger !important;
+      color: $white !important;
+    }
+    input#submit:hover {
+      background-color: $button-danger-hover !important;
+    }
+  }
+}
