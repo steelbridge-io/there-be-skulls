@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
         return '';
     }
 
-    if (!navbar) {
+   if (!navbar) {
         console.error('Navbar element not found!');
         return;
     }
