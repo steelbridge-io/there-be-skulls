@@ -11,33 +11,39 @@ jQuery(window).on('load', function() {
             var imageIndex = $(this).closest('li').index();
             console.log('Image index:', imageIndex);
 
-            // Target the select element based on the provided HTML structure
-            var select = $('select#color'); // Using the id
+            // Attributes to target
+            var attributes = ['color', 'size', 'length', 'variation'];
 
-            // Check if the select element exists
-            if (select.length === 0) {
-                console.log('Select element not found');
-                return;
-            }
+            attributes.forEach(function(attribute) {
+                // Target the select element based on the provided HTML structure
+                var select = $('select#' + attribute); // Using the id for color, size, length, and variation
 
-            console.log('Select element found:', select);
+                // Check if the select element exists
+                if (select.length === 0) {
+                    console.log('Select element for ' + attribute + ' not found');
+                    return;
+                }
 
-            // Find the option that corresponds to the clicked thumbnail
-            var options = select.find('option');
-            console.log('Options:', options);
+                console.log('Select element for ' + attribute + ' found:', select);
 
-            options.prop('selected', false); // Unselect all options
+                // Find the option that corresponds to the clicked thumbnail
+                var options = select.find('option');
+                console.log('Options for ' + attribute + ':', options);
 
-            // Select the correct option based on the index
-            if (imageIndex < options.length - 1) {  // Adjust for the "Choose an option" option
-                $(options[imageIndex + 1]).prop('selected', true).change(); // +1 to skip first option
-                console.log('Option selected:', options[imageIndex + 1]);
-            } else {
-                console.log('Index out of bounds');
-            }
+                options.prop('selected', false); // Unselect all options
 
-            // Trigger the WooCommerce variation change events
-            select.trigger('change');
+                // Select the correct option based on the index
+                if (imageIndex < options.length - 1) {  // Adjust for the "Choose an option" option
+                    $(options[imageIndex + 1]).prop('selected', true).change(); // +1 to skip first option
+                    console.log('Option selected for ' + attribute + ':', options[imageIndex + 1]);
+                } else {
+                    console.log('Index out of bounds for ' + attribute);
+                }
+
+                // Trigger the WooCommerce variation change events
+                select.trigger('change');
+            });
+
             $('.variations_form').trigger('wc_variation_form');
             $('input.variation_id').change();
         });
