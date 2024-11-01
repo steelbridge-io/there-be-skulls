@@ -1,5 +1,14 @@
 /** Search */
 
+.search-result.post-thumbnail {
+  a {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
 .search-wrapper {
   background-color: $white_background;
   padding: 3.618em 0;
