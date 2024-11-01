@@ -381,6 +381,10 @@ input[type="submit"]:focus {
   margin-bottom: 5em; }
 
 /** Search */
+.search-result.post-thumbnail a img {
+  width: 100%;
+  height: auto; }
+
 .search-wrapper {
   background-color: #D9D3C7;
   padding: 3.618em 0;
