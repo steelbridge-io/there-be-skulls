@@ -130,7 +130,7 @@ h1.trade-winds-regular.nav-title {
 .cart-count {
   background: #ff0000; /* Red background */
   color: #ffffff; /* White text */
-  padding: 0px 10px;
+  padding: 0 10px;
   border-radius: 50%;
   margin-left: 1px;
   font-weight: bold;
@@ -388,12 +388,11 @@ Navigation - menu
   #main-menu {
     list-style: none;
     margin: 0;
-    padding: 2em 0;
     height: 100vh !important;
     max-height: 100vh;
     overflow-y: auto !important;
     overflow-x: hidden;
-    padding: 2em 0;
+    padding: 2em 0 2em 0;
   }
 }
 @media (max-width: 767.99px) {
