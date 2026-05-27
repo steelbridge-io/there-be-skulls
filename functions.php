@@ -6,6 +6,29 @@
  * @package ThereBeSkulls
  */
 
+
+/**
+ * Blocks oreders with described address
+ */
+add_action('woocommerce_checkout_process', 'block_fraudulent_address');
+function block_fraudulent_address() {
+    $shipping_address = strtolower(trim($_POST['shipping_address_1'] . ' ' . $_POST['shipping_city'] . ' ' . $_POST['shipping_postcode']));
+    if (strpos($shipping_address, '13822 ne airport way') !== false || strpos($shipping_address, '97251-9614') !== false) {
+        wc_add_notice('This shipping address is not accepted due to policy.', 'error');
+    }
+}
+
+/**
+ * Blocks ordered based on telephone number
+ */
+add_action('woocommerce_checkout_process', 'block_fraudulent_phone');
+function block_fraudulent_phone() {
+    $billing_phone = sanitize_text_field($_POST['billing_phone']);
+    if ($billing_phone === '971-998-9313') {
+        wc_add_notice('This phone number is not accepted due to policy.', 'error');
+    }
+}
+
 function your_theme_setup() {
   // Add support for post thumbnails
   add_theme_support('post-thumbnails');
@@ -23,6 +46,7 @@ require get_template_directory() . '/customizer/frontpage-customizer.php';
 require get_template_directory() . '/inc/custom-login.php';
 require get_template_directory() . '/inc/woocommerce-mods.php';
 require get_template_directory() . '/inc/footer-widgets.php';
+require get_template_directory() . '/inc/email-order-filter.php';
 
 if (!function_exists('there_be_skulls_enqueue_styles')) {
   /**

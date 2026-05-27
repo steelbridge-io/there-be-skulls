@@ -503,7 +503,8 @@ button.button {
 a.button {
   background-color: #0D0D0D !important;
   border-radius: 0 !important;
-  color: #ffffff !important; }
+  color: #ffffff !important;
+  padding: 7px 5px 7px; }
 
 .woocommerce-Price-amount {
   color: #0D0D0D; }
@@ -794,6 +795,22 @@ li.additional_information_tab::after {
   box-sizing: border-box;
   border-right: none !important;
   border-top: none !important; }
+
+.woocommerce-cart-form .cart tbody tr td .button {
+  color: #ffffff;
+  height: 100%;
+  padding: 7px 5px 7px;
+  height: 97%;
+  border: none; }
+.woocommerce-cart-form .cart tbody tr td .coupon {
+  height: 40px; }
+  .woocommerce-cart-form .cart tbody tr td .coupon #coupon_code {
+    height: 100%; }
+  .woocommerce-cart-form .cart tbody tr td .coupon .button {
+    color: #ffffff;
+    padding: 5px 5px 5px;
+    height: 97%;
+    border: none; }
 
 /** 404 */
 /* Custom styles for the 404 error page */
